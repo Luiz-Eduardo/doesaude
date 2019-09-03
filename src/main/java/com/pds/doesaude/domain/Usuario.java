@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.pds.doesaude.domain.enums.TipoUsuario;
 
 @Entity
@@ -28,6 +29,7 @@ public class Usuario implements Serializable {
 	private String cpf;
 	private Integer tipo;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy = "usuario")
 	private List<Endereco> enderecos = new ArrayList<>();
 
